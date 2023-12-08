@@ -1,0 +1,35 @@
+# 這是一個猜數字的小遊戲
+import random
+
+# 產生一個 1 到 100 的隨機整數
+answer = random.randint(1, 1000)
+
+# 設定最多可以猜的次數
+max_guess = 50
+
+# 顯示歡迎訊息
+print("歡迎來到猜數字遊戲！")
+print(f"你有 {max_guess} 次機會猜出一個 1 到 1000 的數字。")
+
+# 開始遊戲迴圈
+for i in range(max_guess):
+    # 輸入一個數字
+    guess = int(input("請輸入你猜的數字："))
+
+    # 檢查輸入的數字是否等於答案
+    if guess == answer:
+        # 猜對了，顯示恭喜訊息並結束遊戲
+        print("恭喜你，你猜對了！")
+        break
+    elif guess < answer:
+        # 猜太小了，顯示提示訊息
+        print("你猜的數字太小了。")
+    else:
+        # 猜太大了，顯示提示訊息
+        print("你猜的數字太大了。")
+
+    # 顯示剩餘的猜測次數
+    print(f"你還有 {max_guess - i - 1} 次機會。")
+
+# 遊戲結束，顯示答案
+print(f"遊戲結束，答案是 {answer}。")
